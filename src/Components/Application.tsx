@@ -19,7 +19,11 @@ function Application() {
         name="first_name"
         required
         value={firstName}
-        onChange={(e: any) => setFirstName(e.target.value)}
+        onChange={(e: any) => {
+          const value = e.target.value;
+          const filteredValue = value.replace(/[^a-zA-Z\s]/g, ""); // only letters and spaces
+          setFirstName(filteredValue);
+        }}
       />
       <br />
       <label htmlFor="lastName">Last Name</label>
@@ -29,7 +33,11 @@ function Application() {
         name="last_name"
         required
         value={lastName}
-        onChange={(e: any) => setLastName(e.target.value)}
+        onChange={(e: any) => {
+          const value = e.target.value;
+          const filteredValue = value.replace(/[^a-zA-Z\s]/g, "");
+          setLastName(filteredValue);
+        }}
       />
       <br />
       <button type="submit">Submit</button>
